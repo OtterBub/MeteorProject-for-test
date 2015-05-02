@@ -5,7 +5,14 @@
 <body>
   <div class="container">
     <header>
-      <h1>Todo List</h1>
+      <h1>Todo List ({{incompleteCount}})</h1>
+      <label class="hide-completed">
+        <input type="checkbox" checked="{{hideCompleted}}" />
+        HideCompleted Tasks
+      </label>
+      <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+      </form>
     </header>
     <ul>
       {{#each tasks}}
@@ -19,10 +26,15 @@
 </body>
 
 <template name="hello">
-  <button>Click Me XD</button>
+  <button>Click Me Wow shit</button>
   <p>You've pressed the button {{counter}} times.</p>
 </template>
 
 <template name="task">
-  <li>{{text}}</li>
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete"> &times; </button>
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    
+    <span class="text"> {{text}} </span> 
+  </li>
 </template>
