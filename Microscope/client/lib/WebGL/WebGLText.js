@@ -30,7 +30,7 @@ function initWebGL(canvas) {
 	}
 	
 	if( !gl ){
-		alert("Unable to initialize WebGL. Your browser may not support it.");
+		//alert("Unable to initialize WebGL. Your browser may not support it.");
 		gl = null;
 	}
 	return gl;
