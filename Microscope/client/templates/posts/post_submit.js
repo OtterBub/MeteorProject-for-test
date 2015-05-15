@@ -17,8 +17,8 @@ Template.postSubmit.events({
          alert('This url: ' + result.url + ' or title: ' + result.title +' has already been posted');
        } else {
          console.log('result.title: ' + result.title);
-         Router.go('postPage', {title:result.title});
        }
      });
+     Router.go('/');
   }
 });
