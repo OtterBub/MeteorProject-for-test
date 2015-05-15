@@ -3,3 +3,9 @@ Template.postsList.helpers({
     return Posts.find();
   }
 });
+
+/*
+Meteor.startup(function(){
+  console.log('There are ' + Posts.find().count() + ' posts' );
+});
+*/
