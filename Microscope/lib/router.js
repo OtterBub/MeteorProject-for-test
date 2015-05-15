@@ -5,14 +5,21 @@ Router.configure({
 	waitOn: function() { return Meteor.subscribe('postsFilter'); }
 });
 
-Router.route('/', {name: 'postsList'});
-Router.route('/posts/:title', {
-	name: 'postPage',
-	data: function() {
-		return Posts.findOne({title:this.params.title}); }
-});
+Router.map(function() {
+	this.route('postsList', {path: '/'});
+	this.route('postPage', {
+		path: '/posts/:title',
+		data: function(){ return Posts.findOne({title: this.params.title}); }
+	});
+	this.route('postEdit', {
+		path: '/posts/:title/edit',
+		data: function(){ return Posts.findOne({title: this.params.title}); }
+	});
 
-Router.route( '/submit', { name: 'postSubmit' } );
+	this.route('postSubmit', {
+		path: '/submit'
+	});
+});
 
 var requireLogin = function() {
 	if( ! Meteor.user() ) {

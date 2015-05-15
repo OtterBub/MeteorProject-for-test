@@ -1,5 +1,16 @@
 Posts = new Mongo.Collection('posts');
 
+Posts.allow({
+  update: function(userId, doc){ return ownsDocument(userId, doc) },
+  remove: function(userId, doc){ return ownsDocument(userId, doc) }
+});
+
+Posts.deny({
+  update: function(userId, post, fieldNames) {
+    return (_.without(fieldNames, 'url', 'title').length > 0 );
+  }
+});
+
 Meteor.methods({
   postInsert:function(postAttributes){
      check(Meteor.userId(), String);
@@ -7,7 +18,7 @@ Meteor.methods({
        title: String,
        url: String,
        flagged: Boolean
-     })
+     });
 
      var postWithSameLink = Posts.findOne({$or: [ {title:postAttributes.title}, {url:postAttributes.url}]} );
      if( postWithSameLink ) {
@@ -29,11 +40,3 @@ Meteor.methods({
      };
   }
 });
-
-/*
-Posts.allow({
-  insert: function(userId, doc) {
-    return !! userId;
-  }
-});
-*/
