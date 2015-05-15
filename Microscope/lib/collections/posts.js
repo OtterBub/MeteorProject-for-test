@@ -9,12 +9,6 @@ Meteor.methods({
        flagged: Boolean
      })
 
-     if(Meteor.isServer){
-       postAttributes.title += "(Server)";
-     } else if(Meteor.isClient){
-       postAttributes.title += "(Client)";
-     }
-
      var postWithSameLink = Posts.findOne({$or: [ {title:postAttributes.title}, {url:postAttributes.url}]} );
      if( postWithSameLink ) {
        return {
