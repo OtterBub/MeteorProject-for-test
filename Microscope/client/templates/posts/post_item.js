@@ -1,4 +1,3 @@
-
 Template.postItem.helpers({
   ownPost: function() {
     return this.userId === Meteor.userId();
@@ -7,5 +6,12 @@ Template.postItem.helpers({
     var a = document.createElement('a');
     a.href = this.url;
     return a.hostname;
+  },
+  submitted: function() {
+    if( this.submitted )
+      return this.submitted.toString();
+  },
+  commentsCount: function() {
+    return Comments.find({postId: this._id}).count();
   }
 });

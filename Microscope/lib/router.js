@@ -2,20 +2,22 @@ Router.configure({
 	layoutTemplate: 'layout',
 	loadingTemplate: 'loading',
 	notFoundTemplate: 'notFound',
-	waitOn: function() { return Meteor.subscribe('postsFilter'); }
+	waitOn: function() {
+		return Meteor.subscribe('postsFilter');
+	}
 });
 
 Router.map(function() {
 	this.route('postsList', {path: '/'});
 	this.route('postPage', {
-		path: '/posts/:title',
-		data: function(){ return Posts.findOne({title: this.params.title}); }
+		path: '/posts/:title/',
+		data: function(){ return Posts.findOne({title: this.params.title}); },
+		waitOn: function() { return Meteor.subscribe('comments', this.params.title); }
 	});
 	this.route('postEdit', {
 		path: '/posts/:title/edit',
 		data: function(){ return Posts.findOne({title: this.params.title}); }
 	});
-
 	this.route('postSubmit', {
 		path: '/submit'
 	});
