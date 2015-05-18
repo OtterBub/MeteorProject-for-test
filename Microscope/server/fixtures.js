@@ -50,3 +50,9 @@ if (Posts.find().count() === 0) {
 		body: 'Wow Good Site'
 	});
 }
+
+if(Admin.find().count() === 0) {
+	Admin.insert({
+		postId: 2020
+	});
+}

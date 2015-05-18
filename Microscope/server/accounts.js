@@ -1,6 +1,6 @@
 Accounts.onCreateUser(function(options, user){
-  user.admin = false;
+  user.admin = 0;
   console.log(user);
   console.log(options);
-	return user
+	return user;
 });

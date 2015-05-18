@@ -21,6 +21,10 @@ Router.map(function() {
 	this.route('postSubmit', {
 		path: '/submit'
 	});
+	this.route('loginAdmin', {
+		path: '/loginAdmin',
+		waitOn: function() { return Meteor.subscribe('admin') }
+	});
 });
 
 var requireLogin = function() {
