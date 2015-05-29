@@ -51,6 +51,10 @@ if (Posts.find().count() === 0) {
 	});
 }
 
+if( Coupons.find().count() == 0 ) {
+	
+}
+
 if(Admin.find().count() === 0) {
 	Admin.insert({
 		postId: 2020

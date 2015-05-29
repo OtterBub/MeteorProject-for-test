@@ -2,10 +2,10 @@ Meteor.publish('postsFilter', function(user) {
 	if(user) {
 		var adminGrade = Meteor.users.findOne({_id:user._id}).admin;
 		if( adminGrade > 0 ) {
-			return Posts.find({flagged: false}, {sort:{submitted:1}});
+			return Posts.find({}, {sort:{submitted:1}});
 		}
 	}
-	return Posts.find({flagged: true}, {sort:{submitted:1}});
+	return Posts.find({flagged: false}, {sort:{submitted:1}});
 });
 
 Meteor.publish('comments', function(postTitle) {
@@ -23,4 +23,8 @@ Meteor.publish('postsAdmin', function() {
 
 Meteor.publish('admin', function() {
 	return Admin.find({});
+});
+
+Meteor.publish('images', function() {
+	return Images.find();
 });

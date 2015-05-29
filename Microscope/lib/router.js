@@ -25,6 +25,10 @@ Router.map(function() {
 		path: '/loginAdmin',
 		waitOn: function() { return Meteor.subscribe('admin') }
 	});
+	this.route('imageList', {
+		path: 'imageList',
+		waitOn: function() { return Meteor.subscribe('images') }
+	});
 });
 
 var requireLogin = function() {
