@@ -1,0 +1,29 @@
+<template name="imageUpload">
+	<div>
+		{{> quickForm collection="ImagePosts" type="insert"}}
+	</div>
+	
+	{{#each images}}
+	
+		<div class="post">
+			<p>
+				<a href="{{this.url}}" target="_blank"> URL: {{this.url}} <br/>
+					{{#if isImage}}
+						<img src="{{this.url store='images'}}" alt="" class="humbnail">
+							
+					{{else}}
+					
+						{{#if isVideo}}
+							<video controls name="media">
+								<source  src="{{this.url store='images'}}" type="video/mp4">
+							</video>					
+						{{/if}}
+					
+					{{/if}}
+					
+				</a>
+			</p>
+		</div>
+	{{/each}}
+	
+</template>

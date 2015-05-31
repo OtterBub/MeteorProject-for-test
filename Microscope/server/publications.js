@@ -26,5 +26,5 @@ Meteor.publish('admin', function() {
 });
 
 Meteor.publish('images', function() {
-	return Images.find();
+	return Images.find({});
 });

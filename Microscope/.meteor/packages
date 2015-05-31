@@ -11,6 +11,8 @@ iron:router
 sacha:spin
 ian:accounts-ui-bootstrap-3@1.2.56
 accounts-password
+yogiben:autoform-file
+coffeescript
 cfs:standard-packages
 cfs:gridfs
 aldeed:simple-schema

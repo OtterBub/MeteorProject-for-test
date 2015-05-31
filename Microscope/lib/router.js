@@ -21,13 +21,16 @@ Router.map(function() {
 	this.route('postSubmit', {
 		path: '/submit'
 	});
-	this.route('loginAdmin', {
-		path: '/loginAdmin',
-		waitOn: function() { return Meteor.subscribe('admin') }
+	this.route('imageUpload', {
+		path: 'imageUpload',
+		waitOn: function() {
+			return Meteor.subscribe('images');
+		}
 	});
-	this.route('imageList', {
-		path: 'imageList',
-		waitOn: function() { return Meteor.subscribe('images') }
+	this.route('profile', {
+		waitOn: function() {
+			return Meteor.subscribe('images');
+		}
 	});
 });
 

@@ -1,3 +1,4 @@
-Meteor.startup(function() {
+var dir = '/MeteorProject';
 
+Meteor.startup(function() {
 });
