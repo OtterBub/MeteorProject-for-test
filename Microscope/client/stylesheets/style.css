@@ -10,6 +10,12 @@
 body {
   background: #eee;
   color: #666666; }
+  
+canvas {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+}
 
 #main {
   position: relative;

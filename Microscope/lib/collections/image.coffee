@@ -14,12 +14,40 @@ Schemas = {}
 
 @ImagePosts = new Meteor.Collection('imagePosts');
 
+Vector = new SimpleSchema
+	X:
+		type: Number
+	
+	Y:
+		type: Number 
+
 Schemas.ImagePosts = new SimpleSchema
-	title:
+	images:
+		type: Array
+	
+	'images.$':
+		type: Object
+	
+	'images.$.title':
 		type: String
 		max: 60
 	
-	picture:
+	'images.$.pos':
+		type: Object
+	
+	'images.$.pos.x':
+		type: Number
+	'images.$.pos.y':
+		type: Number
+	
+	'images.$.scale':
+		type: Object
+	'images.$.scale.x':
+		type: Number
+	'images.$.scale.y':
+		type: Number
+	
+	'images.$.picture':
 		type: String
 		autoform:
 			afFieldInput:
@@ -28,3 +56,7 @@ Schemas.ImagePosts = new SimpleSchema
 		label: 'Choose file'
 
 ImagePosts.attachSchema(Schemas.ImagePosts)
+
+ImagePosts.allow
+	insert: (userId, doc) ->
+		true

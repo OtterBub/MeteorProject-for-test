@@ -22,7 +22,7 @@ Router.map(function() {
 		path: '/submit'
 	});
 	this.route('imageUpload', {
-		path: 'imageUpload',
+		path: '/imageUpload',
 		waitOn: function() {
 			return Meteor.subscribe('images');
 		}
@@ -31,6 +31,9 @@ Router.map(function() {
 		waitOn: function() {
 			return Meteor.subscribe('images');
 		}
+	});
+	this.route("webGL", {
+		path: "/webGL"
 	});
 });
 
