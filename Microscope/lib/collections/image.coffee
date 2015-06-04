@@ -12,7 +12,7 @@ Images.allow
 		
 Schemas = {}
 
-@ImagePosts = new Meteor.Collection('imagePosts');
+@MainPage = new Meteor.Collection('mainPage');
 
 Vector = new SimpleSchema
 	X:
@@ -21,7 +21,7 @@ Vector = new SimpleSchema
 	Y:
 		type: Number 
 
-Schemas.ImagePosts = new SimpleSchema
+Schemas.MainPage = new SimpleSchema
 	images:
 		type: Array
 	
@@ -55,8 +55,8 @@ Schemas.ImagePosts = new SimpleSchema
 				collection: 'Images'
 		label: 'Choose file'
 
-ImagePosts.attachSchema(Schemas.ImagePosts)
+MainPage.attachSchema(Schemas.MainPage)
 
-ImagePosts.allow
+MainPage.allow
 	insert: (userId, doc) ->
 		true
