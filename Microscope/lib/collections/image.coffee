@@ -46,6 +46,11 @@ Schemas.MainPage = new SimpleSchema
 		type: Number
 	'images.$.scale.y':
 		type: Number
+		
+	'images.$.url':
+		type: String
+	'images.$.menu':
+		type: Number
 	
 	'images.$.picture':
 		type: String

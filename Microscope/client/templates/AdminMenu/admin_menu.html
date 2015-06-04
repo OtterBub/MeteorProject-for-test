@@ -1,0 +1,17 @@
+<template name="adminMenu">
+	{{#if currentUser}}
+	<div>
+		<a href="{{pathFor 'imageUpload'}}" class="discuss btn btn-default">Main Image Edit</a>
+		<a href="{{pathFor 'imageUpload'}}" class="discuss btn btn-default">Tutorial Edit</a>
+	</div>
+	<div>
+		<a href="{{pathFor 'imageUpload'}}" class="discuss btn btn-default">View User</a>
+		<a href="{{pathFor 'imageUpload'}}" class="discuss btn btn-default">View User</a>
+	</div>
+	{{else}}
+	<div class = "not-found jumbotron">
+		<h2>plz Login</h2>
+		<p>Sorry, only Access Admin at this page.</p>
+	</div>
+	{{/if}}
+</template>

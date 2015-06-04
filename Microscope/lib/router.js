@@ -8,7 +8,12 @@ Router.configure({
 });
 
 Router.map(function() {
-	this.route('postsList', {path: '/'});
+	this.route('adminMenu', {
+		path: '/'
+	});	
+	this.route('postsList', {
+		path: '/postsList'
+	});
 	this.route('postPage', {
 		path: '/posts/:title/',
 		data: function(){ return Posts.findOne({title: this.params.title}); },
