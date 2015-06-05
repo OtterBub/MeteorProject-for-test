@@ -11,6 +11,12 @@ Router.map(function() {
 	this.route('adminMenu', {
 		path: '/'
 	});	
+	this.route('viewUser', {
+		path: '/viewuser'
+	});
+	this.route('tutorialEdit', {
+		path: '/tutorialEdit'
+	});
 	this.route('postsList', {
 		path: '/postsList'
 	});

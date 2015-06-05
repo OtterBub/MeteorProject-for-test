@@ -1,0 +1,10 @@
+<template name="tutorialEdit">
+	tutorialEdit
+	<div>
+		<!--{{> quickForm collection="MainPage" type="insert"}}-->
+		{{#autoForm collection="TutorialPage" type="insert"}}
+			{{> afQuickField name="images" }}				
+			<button type="submit" class="btn btn-primary">Insert</button>
+		{{/autoForm}}
+	</div>
+</template>
